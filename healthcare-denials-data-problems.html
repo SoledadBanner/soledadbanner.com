@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Healthcare Denials Are Often Data Problems, Not Billing Problems | Soledad Banner</title>
+
+<meta
+name="description"
+content="Healthcare denials often begin with upstream data, workflow, eligibility, authorization, and healthcare technology problems. Soledad Banner explains how to find the real failure point."
+>
+
+<link rel="canonical" href="https://soledadbanner.com/healthcare-denials-data-problems.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Healthcare Denials Are Often Data Problems, Not Billing Problems">
+<meta
+property="og:description"
+content="A denial is often the last visible failure in a much longer chain. Soledad Banner looks at what revenue cycle teams can learn from the data behind denials."
+>
+<meta property="og:url" content="https://soledadbanner.com/healthcare-denials-data-problems.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--ink: #080907;
+--panel: #0d100c;
+--cream: #f1eadb;
+--muted: #c8c0ae;
+--gold: #b99b61;
+--gold-dark: #735d36;
+--line: rgba(185, 155, 97, 0.42);
+}
+
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background:
+radial-gradient(circle at 80% 8%, rgba(117,86,45,.12), transparent 28%),
+var(--ink);
+color: var(--cream);
+font-family: "Cormorant Garamond", Georgia, serif;
+line-height: 1.75;
+}
+
+a {
+color: inherit;
+}
+
+.shell {
+width: min(1100px, calc(100% - 40px));
+margin: auto;
+}
+
+nav {
+min-height: 76px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-bottom: 1px solid var(--line);
+gap: 30px;
+}
+
+.brand {
+text-decoration: none;
+color: var(--cream);
+text-transform: uppercase;
+letter-spacing: 4px;
+font-weight: 600;
+font-size: 16px;
+}
+
+.nav-links {
+display: flex;
+gap: 28px;
+align-items: center;
+font-family: Montserrat, Arial, sans-serif;
+font-size: 12px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: var(--muted);
+}
+
+.nav-links a:hover {
+color: var(--gold);
+}
+
+article {
+max-width: 790px;
+margin: 0 auto;
+padding: 90px 0 110px;
+}
+
+.eyebrow {
+color: var(--gold);
+text-transform: uppercase;
+letter-spacing: 4px;
+font: 600 11px/1.5 Montserrat, Arial, sans-serif;
+margin-bottom: 22px;
+}
+
+h1 {
+margin: 0;
+font-size: clamp(46px, 7vw, 76px);
+line-height: .98;
+font-weight: 500;
+letter-spacing: -1px;
+}
+
+.byline {
+margin: 28px 0 10px;
+color: var(--gold);
+font-size: 22px;
+}
+
+.date {
+color: var(--muted);
+font: 500 11px/1.5 Montserrat, Arial, sans-serif;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.ornament {
+display: flex;
+align-items: center;
+gap: 12px;
+margin: 38px 0 52px;
+color: var(--gold);
+}
+
+.ornament::before,
+.ornament::after {
+content: "";
+width: 90px;
+height: 1px;
+background: var(--gold-dark);
+}
+
+.ornament span {
+transform: rotate(45deg);
+width: 7px;
+height: 7px;
+border: 1px solid var(--gold);
+display: inline-block;
+}
+
+.intro {
+font-size: 23px;
+line-height: 1.55;
+color: var(--cream);
+}
+
+p {
+font-size: 20px;
+color: #ddd5c4;
+margin: 0 0 24px;
+}
+
+h2 {
+color: var(--cream);
+font-size: 35px;
+line-height: 1.15;
+font-weight: 500;
+margin: 62px 0 22px;
+}
+
+strong {
+color: var(--cream);
+}
+
+ul {
+margin: 18px 0 30px 24px;
+color: #ddd5c4;
+font-size: 20px;
+}
+
+li {
+margin: 8px 0;
+}
+
+.pullquote {
+margin: 45px 0;
+padding: 24px 28px;
+border-left: 2px solid var(--gold);
+background: rgba(185,155,97,.06);
+font-size: 28px;
+line-height: 1.35;
+color: var(--cream);
+}
+
+.back {
+display: inline-block;
+margin-top: 46px;
+border: 1px solid var(--gold);
+padding: 12px 18px;
+color: var(--cream);
+text-decoration: none;
+font: 500 12px/1 Montserrat, Arial, sans-serif;
+letter-spacing: .5px;
+}
+
+.back:hover {
+background: var(--gold);
+color: var(--ink);
+}
+
+footer {
+border-top: 1px solid var(--line);
+padding: 28px 0 42px;
+color: var(--muted);
+font: 500 11px/1.5 Montserrat, Arial, sans-serif;
+letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+.nav-links {
+display: none;
+}
+
+article {
+padding-top: 60px;
+}
+
+p,
+ul {
+font-size: 18px;
+}
+
+.intro {
+font-size: 21px;
+}
+}
+</style>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "Healthcare Denials Are Often Data Problems, Not Billing Problems",
+"description": "Healthcare denials often begin with upstream data, workflow, eligibility, authorization, and healthcare technology problems.",
+"datePublished": "2026-09-25",
+"dateModified": "2026-09-25",
+"mainEntityOfPage": "https://soledadbanner.com/healthcare-denials-data-problems.html",
+"author": {
+"@type": "Person",
+"@id": "https://soledadbanner.com/#soledad-banner",
+"name": "Soledad Banner",
+"alternateName": "The Queen of RCM",
+"url": "https://soledadbanner.com/"
+}
+}
+</script>
+</head>
+
+<body>
+
+<div class="shell">
+
+<nav>
+<a class="brand" href="https://soledadbanner.com/">Soledad Banner</a>
+
+<div class="nav-links">
+<a href="https://soledadbanner.com/#about">About</a>
+<a href="https://soledadbanner.com/#rcm">RCM Insights</a>
+<a href="https://soledadbanner.com/#research">Research</a>
+<a href="https://soledadbanner.com/#speaking">Speaking</a>
+</div>
+</nav>
+
+<article>
+
+<div class="eyebrow">RCM Insights · Revenue Cycle Analytics · Healthcare Technology</div>
+
+<h1>Healthcare Denials Are Often Data Problems, Not Billing Problems</h1>
+
+<div class="byline">By Soledad Banner — The Queen of RCM</div>
+<div class="date">September 25, 2026</div>
+
+<div class="ornament"><span></span></div>
+
+<p class="intro">
+Healthcare organizations love to treat denials like a billing problem.
+</p>
+
+<p>
+A claim denies, it drops into a work queue, someone fixes it, resubmits it, and everyone moves on.
+</p>
+
+<p>
+But a lot of denials have very little to do with billing.
+</p>
+
+<p>
+The actual problem may have started days earlier with bad eligibility data, an authorization that never made it into the right system, a payer rule nobody knew changed, a registration error, or information that technically existed but never reached the person who needed it.
+</p>
+
+<p>
+By the time the claim denies, you are often looking at the <strong>last visible failure in a much longer chain.</strong>
+</p>
+
+<p>
+That distinction matters because if you only fix the claim, you have not necessarily fixed the problem.
+</p>
+
+<h2>Stop treating every denial like it is unique</h2>
+
+<p>
+One of the easiest ways to waste money in revenue cycle is to build a highly efficient process for fixing the same preventable error 500 times.
+</p>
+
+<p>That happens all the time.</p>
+
+<p>
+The denial team gets faster. The work queues get cleaner. Productivity improves.
+</p>
+
+<p>
+Meanwhile, the same underlying issue keeps feeding new accounts into the queue.
+</p>
+
+<p>
+A denial is not just an account that needs to be worked. It is also information.
+</p>
+
+<p>
+It tells you that something failed somewhere in the process: a workflow, a system configuration, a data field, a payer rule, a handoff between teams, or a piece of technology that did not behave the way people assumed it would.
+</p>
+
+<div class="pullquote">
+If the same denial reason keeps showing up, I want to know why. Not just how to fix it.
+</div>
+
+<h2>Eligibility is a perfect example</h2>
+
+<p>
+Eligibility-related denials often get written off as registration mistakes.
+</p>
+
+<p>Sometimes they are.</p>
+
+<p>But that is not the end of the investigation.</p>
+
+<p>
+Was eligibility actually checked? Did the response contain useful information? Did the system interpret the response correctly? Was there a coverage change between scheduling and the date of service?
+</p>
+
+<p>
+Did the payer return something ambiguous? Was the response buried somewhere staff could not easily see? Did the workflow rely on someone remembering to check three different systems?
+</p>
+
+<p>
+Those are very different problems, even if they eventually produce the same denial code.
+</p>
+
+<p>
+If you treat every one of them as “registration error,” you lose the opportunity to identify the actual failure point.
+</p>
+
+<h2>The useful question is where the pattern starts</h2>
+
+<p>
+RCM does not need another dashboard just for the sake of having a dashboard.
+</p>
+
+<p>
+The useful question is whether the data can show you where the same failure is happening over and over again.
+</p>
+
+<p>
+I want to see denials by payer, plan, location, provider, procedure, denial reason, authorization status, eligibility response, workflow step, and date of service.
+</p>
+
+<p>Then I want to look for patterns.</p>
+
+<p>
+Maybe one payer is returning incomplete benefit information for a particular plan.
+</p>
+
+<p>
+Maybe one location has a spike in authorization denials because documentation is not reaching the right team.
+</p>
+
+<p>
+Maybe a certain procedure started denying after a payer policy changed and nobody updated the workflow.
+</p>
+
+<p>
+Maybe a specific insurance product is creating trouble because the system maps it incorrectly.
+</p>
+
+<p>
+Those are not isolated billing problems.
+</p>
+
+<p>
+They are operational problems showing up in claims data.
+</p>
+
+<h2>Healthcare technology is often part of the story</h2>
+
+<p>
+Revenue cycle does not happen in one system.
+</p>
+
+<p>
+There may be an EHR, a practice management system, a clearinghouse, payer portals, eligibility tools, authorization platforms, spreadsheets, analytics tools, and a handful of manual workarounds holding the whole process together.
+</p>
+
+<p>
+That creates a lot of places for information to get lost.
+</p>
+
+<p>
+And one thing I have learned about healthcare technology is that a process can look automated while still depending on a surprising amount of manual interpretation.
+</p>
+
+<p>
+That is where problems get interesting.
+</p>
+
+<p>
+The technology may technically be working, but the workflow around it is not.
+</p>
+
+<p>
+Or the workflow is fine, but the system is not surfacing the right information.
+</p>
+
+<p>
+Or the payer data is inconsistent.
+</p>
+
+<p>
+Or one platform is sending information that the next platform does not know what to do with.
+</p>
+
+<p>
+By the time somebody notices, the claim is already denied.
+</p>
+
+<h2>Automation only helps if you understand the failure first</h2>
+
+<p>I am a big believer in automation.</p>
+
+<p>I am also a big believer in not automating nonsense.</p>
+
+<p>
+If you automate a broken workflow, you usually just create the same problem faster and at a larger scale.
+</p>
+
+<p>Before automating a denial-related process, I want to understand:</p>
+
+<ul>
+<li>where the information enters the workflow</li>
+<li>who touches it</li>
+<li>where it changes</li>
+<li>where it disappears</li>
+<li>what the downstream financial impact is</li>
+<li>whether the same problem is happening repeatedly</li>
+</ul>
+
+<p>
+Then automation can be useful.
+</p>
+
+<p>
+At that point, you are not just making people click fewer buttons. You are using technology to reduce the chance that the error happens in the first place.
+</p>
+
+<h2>The real opportunity is prevention</h2>
+
+<p>
+Most denial teams are incredibly good at fixing problems after they happen.
+</p>
+
+<p>
+The bigger opportunity is identifying what can be prevented before the claim goes out the door.
+</p>
+
+<p>Not every denial is preventable.</p>
+
+<p>But a lot of them are predictable.</p>
+
+<p>
+Historical denial patterns, eligibility mismatches, missing authorizations, payer-specific rules, coding combinations, documentation gaps, and coverage changes all leave signals.
+</p>
+
+<p>
+The question is whether the organization is looking at those signals early enough to do anything about them.
+</p>
+
+<p>
+That is where revenue cycle, analytics, and healthcare technology start to overlap in a much more meaningful way.
+</p>
+
+<p>
+Because the goal is not just to work denials faster.
+</p>
+
+<p>
+It is to understand why they keep happening.
+</p>
+
+<p>
+And then make fewer of them happen at all.
+</p>
+
+<a class="back" href="https://soledadbanner.com/#rcm">← Back to RCM Insights</a>
+
+</article>
+
+<footer>
+© 2026 Soledad Banner · Healthcare Revenue Cycle · Analytics · Healthcare Technology
+</footer>
+
+</div>
+
+</body>
+</html>
+
